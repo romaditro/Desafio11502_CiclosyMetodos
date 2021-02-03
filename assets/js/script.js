@@ -2,26 +2,21 @@
  * (1) - Solicitar al usuario un número entre 1 al 100. Luego, se deberá imprimir por consola los números
  * desde el 0 hasta el número que ingresó el usuario.
  */
-let esValida = false;
+//let esValida = false;
 let respuestaUsuario = "";
 const CERO = 0;
 const CIEN = 100;
-const BLANCO = "blanco";
 
 //Solicitamos el numero entre 0 y 100 hasta que sea valido.
-/* while (!esValida) {
-    respuestaUsuario = prompt("Ingrese un número entre 1 y 100.");
-
-    if ((respuestaUsuario > CERO) && (respuestaUsuario < CIEN)) {
-        esValida = true;
-    }
-}
+do {
+    respuestaUsuario = Number(prompt("Ingrese un número entre 1 y 100."));
+} while ((respuestaUsuario < CERO) || (respuestaUsuario > CIEN));
 
 console.log("Respuesta del punto #1");
 for (i = 0; i <= respuestaUsuario; i++) {
     console.log("==> " + i)
 }
- */
+
 
 /*
  * (2) Realizarle al usuario la pregunta “¿De qué color es el caballo blanco de Napoleón?”. Si el
@@ -29,11 +24,13 @@ for (i = 0; i <= respuestaUsuario; i++) {
  * contrario, se le dejará de hacer la pregunta.
  */
 
-/* respuestaUsuario = "";
+
+const BLANCO = "blanco";
+respuestaUsuario = "";
 do {
     respuestaUsuario = prompt("¿De qué color es el caballo blanco de Napoleón?");
     respuestaUsuario = respuestaUsuario.toLowerCase().trim();
-} while (respuestaUsuario != BLANCO); */
+} while (respuestaUsuario != BLANCO);
 
 
 /*
@@ -43,27 +40,19 @@ do {
  * promedio de notas mostrado debe estar redondeado a un número entero.
  */
 
-/* let notas = [];
-let suma = 0;
-
-nota = prompt("Ingrese la nota de Matemáticas");
-notas.push(parseFloat(nota));
-
-nota = prompt("Ingrese la nota de Fisica");
-notas.push(parseFloat(nota));
-
-nota = prompt("Ingrese la nota de Ciencias");
-notas.push(parseFloat(nota));
-
-suma = notas.reduce((a, b) => a + b);
+let notas = [];
+let promedio = 0;
 
 
+notas.push(parseFloat(prompt("Ingrese la nota de Matemáticas")));
+notas.push(parseFloat(prompt("Ingrese la nota de Fisica")));
+notas.push(parseFloat(prompt("Ingrese la nota de Ciencias")));
 
-console.table(notas);
-console.log("La suma es: " + suma);
-console.log("El promedio es: " + parseInt(suma / 3));
-alert("El promedio es: " + parseInt(suma / 3));
- */
+promedio = (notas.reduce((a, b) => a + b)) / notas.length;
+
+
+alert("El promedio es: " + Math.round((promedio)));
+
 
 
 /*
@@ -71,13 +60,14 @@ alert("El promedio es: " + parseInt(suma / 3));
  * manera individual. Cuando ya se hayan ingresado la totalidad de frutas, se deben imprimir todas
  * por consola, a excepción de la que tenga el nombre de “manzana”.
  */
-/* let frutas = [];
+let frutas = [];
+const MAXIMO = 3;
 
 do {
     frutas.push(prompt("Ingrese el nombre de una fruta"));
-} while (frutas.length < 3);
+} while (frutas.length < MAXIMO);
 
-frutas.forEach(function(fruta) { if (fruta != "manzana") console.log("->" + fruta); }) */
+frutas.forEach(function(fruta) { if (fruta != "manzana") console.log("->" + fruta); })
 
 
 /*
@@ -92,3 +82,6 @@ let numeroConsonantes = nombre.match(/[bcdfghjklmnñpqrstvwxyz]/gi).length;
 console.log("Nombre : " + nombre);
 console.log("Cantidad de vocales: " + numeroVocales);
 console.log("Cantidad de consonantes: " + numeroConsonantes);
+
+alert("Cantidad de vocales: " + numeroVocales);
+alert("Cantidad de consonantes: " + numeroConsonantes);
